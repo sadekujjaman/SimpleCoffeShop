@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Coffee Shop - Order Status!</title>
+<title>Juniper Coffee Shop - Order Status!</title>
 <link href="Content/Site.css" rel="stylesheet" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <script src="Scripts/modernizr-2.5.3.js"></script>
@@ -28,14 +28,14 @@
 		// Enter the following values so we can send order confirmation email !
 		// if these fields are not set, you will see an error/warning page.
 		//
-		final String userName = "";
-		final String password = "";
-		final String fromEmailId = "order@coffeeshop.com";
+		final String userName = "junipertest";
+		final String password = "junipertest00@#";
+		final String fromEmailId = "junipertest00@gmail.com";
 	%>
 	<div id="page">
 		<header>
 			<p class="site-title">
-				<a href="">Coffee Shop</a>
+				<a href="">Juniper Coffee Shop</a>
 			</p>
 			<nav>
 				<ul>
@@ -45,7 +45,7 @@
 			</nav>
 		</header>
 		<div id="body">
-			<img alt="Welcome to Coffee Shop!" src="Images/banner_coffee.png"
+			<img alt="Welcome to Juniper Coffee Shop!" src="Images/banner_coffee.png"
 				height="200" />
 			<ol id="orderProcess">
 				<li><span class="step-number">1</span>Choose Item</li>
@@ -96,7 +96,10 @@
 						order.setProductId(product);
 						order.setQuantity(orderQty);
 						order.setCode(sb.toString());
-						order.setFinalPrice(product.getPrice() * orderQty);
+						double finalPrice = product.getPrice() * orderQty;
+						
+				            finalPrice = Double.parseDouble(String.format("%.3f", finalPrice));
+						order.setFinalPrice(finalPrice);
 						
 						/* add to orders table if you need 
 						orderManager.addOrder(order);
@@ -105,15 +108,22 @@
 						// send email confirmation
 
 						Properties props = new Properties();
-						props.put("mail.smtp.auth", "true");
+						/* props.put("mail.smtp.auth", "true");
 						props.put("mail.smtp.starttls.enable", "true");
 						props.put("mail.smtp.host", "smtp.live.com");
-						props.put("mail.smtp.port", "25");
+						props.put("mail.smtp.port", "25"); */
+						
+				        props.put("mail.smtp.host", "smtp.gmail.com");
+				        props.put("mail.smtp.socketFactory.port", "465");
+				        props.put("mail.smtp.socketFactory.class",
+				                "javax.net.ssl.SSLSocketFactory");
+				        props.put("mail.smtp.auth", "true");
+				        props.put("mail.smtp.port", "465");
 
 						Session mailSession = Session.getInstance(props,
 								new javax.mail.Authenticator() {
 									protected PasswordAuthentication getPasswordAuthentication() {
-										return new PasswordAuthentication(userName,
+										return new PasswordAuthentication(fromEmailId,
 												password);
 									}
 								});
@@ -124,7 +134,7 @@
 								InternetAddress.parse(email));
 						message.setSubject("You order has been processed!");
 						message.setText("Dear Customer,"
-		                        + "\n\n Thank you for ordering from Coffee Shop! "
+		                        + "\n\n Thank you for ordering from <b>Juniper Coffee Shop!</b> "
 		                        + "\n\n Your order details: \n\n"
 		                        + " Confirmation number: " + order.getCode() 
 		                        + "\n Product: " + product.getName() 
@@ -142,12 +152,15 @@
 
 					} catch (MessagingException e) {
 						out.println("Error occurred ! :( ");
+			
+						System.out.println(e.getMessage());
+						//e.printStackTrace();
 					}
 				}
 			%>
 
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2019 - Juniper Coffee Shop </footer>
 	</div>
 </body>
 </html>

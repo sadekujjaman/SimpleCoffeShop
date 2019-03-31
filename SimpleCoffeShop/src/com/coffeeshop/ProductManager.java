@@ -49,9 +49,12 @@ public class ProductManager  {
 		Session s = null;
 		try {
 			s = getSession();
-			Query q = s.createQuery("FROM Product");
-			List<Product> list = q.list();
-			for(Product product : list)
+			System.out.println("COME");
+			org.hibernate.query.Query<Product> query = s.createQuery("FROM Product");
+			List<Product> pList = query.list();
+//			Query<Product> q = s.createQuery("FROM Product");
+//			List<Product> list = q.list();
+			for(Product product : pList)
 			{
 				products.add(product);
 			}
@@ -59,6 +62,7 @@ public class ProductManager  {
 			if (s != null) {
 				s.disconnect();
 			}
+			System.out.println("ERROR");
 			e.printStackTrace();
 		}
 
@@ -70,7 +74,7 @@ public class ProductManager  {
 		Session s = null;
 		try {
 			s = getSession();
-			Query q = s.createQuery("FROM Product where id="+id);
+			Query<Product> q = s.createQuery("FROM Product where id="+id);
 			List<Product> list = q.list();
 			for(Product product : list)
 			{

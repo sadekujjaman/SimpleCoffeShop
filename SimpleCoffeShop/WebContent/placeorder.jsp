@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Coffee Shop - Place Your Order</title>
+<title>Juniper Coffee Shop - Place Your Order</title>
 <link href="Content/Site.css" rel="stylesheet" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <script src="Scripts/modernizr-2.5.3.js"></script>
@@ -20,7 +20,7 @@
 	<div id="page">
 		<header>
 			<p class="site-title">
-				<a href="">Coffee Shop</a>
+				<a href="">Juniper Coffee Shop</a>
 			</p>
 			<nav>
 				<ul>
@@ -30,7 +30,7 @@
 			</nav>
 		</header>
 		<div id="body">
-		<img alt="Welcome to Coffee Shop!" src="Images/banner_coffee.png" height="200" />
+		<img alt="Welcome to Juniper Coffee Shop!" src="Images/banner_coffee.png" height="200" />
 			<ol id="orderProcess">
 				<li><span class="step-number">1</span>Choose Item</li>
 				<li class="current"><span class="step-number">2</span>Details
@@ -114,7 +114,7 @@
 			</script>
 
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2019 - Juniper Coffee Shop </footer>
 	</div>
 </body>
 </html>

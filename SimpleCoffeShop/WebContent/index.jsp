@@ -1,3 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@ page import="com.coffeeshop.ProductManager"%>
+<%@ page import="com.coffeeshop.Product"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,12 +17,11 @@
 </head>
 <body>
 
-	<%@ page import="com.coffeeshop.ProductManager"%>
-	<%@ page import="com.coffeeshop.Product"%>
+	
 	<div id="page">
 		<header>
 		<p class="site-title">
-			<a href="">Coffee Shop</a>
+			<a href="">Juniper Coffee Shop</a>
 		</p>
 		<nav>
 		<ul>
@@ -30,15 +34,15 @@
 				int randomFeaturedProductId = (int) (Math.random() * 3);
 			%>
 
-			<img alt="Welcome to Coffee Shop!" src="Images/banner_coffee.png"
+			<img alt="Welcome to Juniper Coffee Shop!" src="Images/banner_coffee.png"
 				height="200" />
 			<%
+			System.out.println("Hello");
 				ProductManager productManager = new ProductManager();
 				int index = 0;
 				int firstTime = 0;
-				java.util.ArrayList<Product> productList = productManager
-						.getProducts();
-
+				ArrayList<Product>productList = productManager.getProducts();
+				
 				try {
 					/**
 					 * Display a featured item.
@@ -115,7 +119,7 @@
 				</ul>
 			</div>
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2019 - Juniper Coffee Shop </footer>
 	</div>
 
 </body>

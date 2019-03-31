@@ -5,9 +5,9 @@
   			maxActive="30"
   			maxIdle="10" 
   			maxWait="10000" 
-  			name="jdbc/ranjithrdb" 
-  			password="46ba582b"
+  			name="coffeshop" 
+  			password=""
   			type="java.sql.DataSource" 
-  			url="jdbc:mysql://us-cdbr-azure-west-b.cleardb.com/ranjithAgLJTbcEb" 
-  			username="b4502bbc6e6431"/>
+  			url="jdbc:mysql://localhost:3306/coffeshop" 
+  			username="root"/>
 </Context>
